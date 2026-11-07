@@ -1,5 +1,20 @@
-INFO Server started
-ERROR Database connection failed
-INFO User login
-ERROR Permission denied
-INFO Server stopped
+INFO Server started successfully
+INFO Database connection established
+WARNING Disk usage is above 70 percent
+INFO User john logged in
+ERROR Failed to connect to authentication service
+INFO User profile loaded
+WARNING Memory usage is high
+ERROR Permission denied when accessing /etc/shadow
+INFO Backup process started
+INFO Backup completed successfully
+WARNING Network latency is high
+ERROR Database query failed
+INFO User alice logged out
+INFO Scheduled task started
+WARNING CPU temperature is high
+ERROR Unable to write report file
+INFO System health check completed
+INFO New client connected
+WARNING Too many login attempts detected
+ERROR Authentication failed for user admin

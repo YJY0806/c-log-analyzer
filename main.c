@@ -15,8 +15,10 @@ int main (int argc, char *argv[]) {
         printf("File name: %s\n", result.filename);
         printf("Total lines: %d\n", result.total_lines);
         printf("Error lines: %d\n", result.error_lines);
+        printf("Warning lines: %d\n", result.warning_lines);
+        printf("Info lines: %d\n", result.info_lines);
         for (int i = 0; i < result.error_lines; i++) {
-            printf("Full error message: %s", result.error_messages[i]);
+            printf("Full error message: %s\n", result.error_messages[i]);
         }
 
         for (int i = 0;  i < result.error_lines; i++) {

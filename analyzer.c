@@ -8,6 +8,8 @@ struct LogResult analyzer_result(char filename[]) {
     strcpy(result.filename, filename);
     result.total_lines = 0;
     result.error_lines = 0;
+    result.warning_lines = 0;
+    result.info_lines = 0;
     result.error_messages = NULL;
 
     FILE *file;
@@ -27,6 +29,13 @@ struct LogResult analyzer_result(char filename[]) {
             result.error_messages[result.error_lines - 1] = malloc((strlen(line) + 1) * sizeof(char));
             strcpy(result.error_messages[result.error_lines - 1], line);
         }
+        else if (strstr(line, "WARNING")) {
+            result.warning_lines++;
+        }
+        else if (strstr(line, "INFO")) {
+            result.info_lines++;
+        }
+
     }
 
     fclose(file);
