@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "analyzer.h"
+#include <stdlib.h>
 
 
 int main (int argc, char *argv[]) {
@@ -14,6 +15,15 @@ int main (int argc, char *argv[]) {
         printf("File name: %s\n", result.filename);
         printf("Total lines: %d\n", result.total_lines);
         printf("Error lines: %d\n", result.error_lines);
+        for (int i = 0; i < result.error_lines; i++) {
+            printf("Full error message: %s", result.error_messages[i]);
+        }
+
+        for (int i = 0;  i < result.error_lines; i++) {
+            free(result.error_messages[i]);
+        }
+
+        free(result.error_messages);
     }
 
     return 0;

@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include "analyzer.h"
 #include <string.h>
+#include <stdlib.h>
 
 struct LogResult analyzer_result(char filename[]) {
     struct LogResult result;
     strcpy(result.filename, filename);
     result.total_lines = 0;
     result.error_lines = 0;
+    result.error_messages = NULL;
 
     FILE *file;
     file = fopen(filename, "r");
@@ -21,6 +23,9 @@ struct LogResult analyzer_result(char filename[]) {
 
         if (strstr(line, "ERROR")) {
             result.error_lines++;
+            result.error_messages = realloc(result.error_messages, result.error_lines * sizeof(char *));
+            result.error_messages[result.error_lines - 1] = malloc((strlen(line) + 1) * sizeof(char));
+            strcpy(result.error_messages[result.error_lines - 1], line);
         }
     }
 
